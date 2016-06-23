@@ -292,8 +292,8 @@ var P = (function() {
     var request = new CompositeRequest;
 
     request.defer = true;
-    // var corsProxy = 'http://crossorigin.me/';
-    var corsProxy = 'http://cors.io/?u=';
+    var corsProxy = 'https://crossorigin.me/';
+    // var corsProxy = 'http://cors.io/?u=';
     request.add(P.IO.load(corsProxy + 'http://scratch.mit.edu/projects/' + id + '/').onLoad(function(data) {
       var m = /<title>\s*(.+?)(\s+on\s+Scratch)?\s*<\/title>/.exec(data);
       if (callback) request.onLoad(callback.bind(self));
