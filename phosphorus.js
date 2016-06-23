@@ -170,9 +170,9 @@ var P = (function() {
 
   var IO = {};
 
-  IO.PROJECT_URL = 'http://projects.scratch.mit.edu/internalapi/project/';
-  IO.ASSET_URL = 'http://cdn.assets.scratch.mit.edu/internalapi/asset/';
-  IO.SOUNDBANK_URL = 'http://cdn.rawgit.com/LLK/scratch-flash/v429/src/soundbank/';
+  IO.PROJECT_URL = 'https://projects.scratch.mit.edu/internalapi/project/';
+  IO.ASSET_URL = 'https://cdn.assets.scratch.mit.edu/internalapi/asset/';
+  IO.SOUNDBANK_URL = 'https://cdn.rawgit.com/LLK/scratch-flash/v429/src/soundbank/';
 
   IO.FONTS = {
     '': 'Helvetica',
