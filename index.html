@@ -86,6 +86,7 @@
 
     var prefix = 'https://scratch.mit.edu/projects/';
     if (location.match(/^http:/)) {
+        console.log("uhh");
         location = String(location).replace(/^http:/, "https:");
     }
 
