@@ -89,7 +89,8 @@
 (function() {
   'use strict';
 
-  var prefix = 'http://scratch.mit.edu/projects/';
+  var prefix = 'https://scratch.mit.edu/projects/';
+  location = String(location).replace(/^http:/, "https:");
 
   var initialId = location.hash.substr(1);
   if (initialId === 'zip') initialId = '';
