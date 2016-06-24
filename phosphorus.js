@@ -208,7 +208,6 @@ var P = (function() {
 
 
   IO.load = function(url, callback, self, type) {
-    console.log("HEY", url);
     var request = new Request;
     var xhr = new XMLHttpRequest;
     xhr.open('GET', url, true);
@@ -554,9 +553,11 @@ var P = (function() {
       if (IO.zip) {
         cb(f.asText());
       } else {
+        console.log("I'm looking for", IO.ASSET_URL + md5);
         IO.projectRequest.add(IO.load(IO.ASSET_URL + md5 + '/get/', cb));
       }
     } else if (ext === 'wav') {
+      console.log("Found a wav file", IO.ASSET_URL + md5);
       var request = new Request;
       var cb = function(ab) {
         IO.decodeAudio(ab, function(buffer) {
