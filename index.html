@@ -85,9 +85,9 @@
     'use strict';
 
     var prefix = 'http://scratch.mit.edu/projects/';
-    if (String(location).match(/^https:/)) {
-        location = String(location).replace(/^https:/, "http:");
-    }
+    // if (String(location).match(/^https:/)) {
+    //     location = String(location).replace(/^https:/, "http:");
+    // }
 
     var initialId = location.hash.substr(1);
     if (initialId === 'zip') initialId = '';
