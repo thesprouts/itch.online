@@ -557,9 +557,9 @@ var P = (function() {
         IO.projectRequest.add(IO.load(IO.ASSET_URL + md5 + '/get/', cb));
       }
     } else if (ext === 'wav') {
-      console.log("Found a wav file", IO.ASSET_URL + md5);
       var request = new Request;
       var cb = function(ab) {
+        console.log("Found a wav file", IO.ASSET_URL + md5);
         IO.decodeAudio(ab, function(buffer) {
           callback(buffer);
           request.load(buffer);
