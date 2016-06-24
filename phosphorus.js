@@ -423,6 +423,7 @@ var P = (function() {
       audioContext.decodeAudioData(ab, function(buffer) {
         cb(buffer);
       }, function(err) {
+        console.log(err);
         console.warn('Failed to load audio');
         cb(null);
       });
