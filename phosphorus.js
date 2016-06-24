@@ -562,12 +562,13 @@ var P = (function() {
         } else if (ext === 'wav') {
             var request = new Request;
             var cb = function(ab) {
+              console.log("Uhh", ab);
                 var url = IO.ASSET_URL + md5;
                 IO.decodeAudio(ab, function(buffer) {
-                    var source = audioContext.createBufferSource();
-                    source.buffer = buffer;
-                    source.connect(audioContext.destination);
-                    source.start(0);
+                    // var source = audioContext.createBufferSource();
+                    // source.buffer = buffer;
+                    // source.connect(audioContext.destination);
+                    // source.start(0);
                     callback(buffer);
                     request.load(buffer);
                 }, url);
