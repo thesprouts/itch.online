@@ -405,6 +405,7 @@ var P = (function() {
   IO.loadWavBuffer = function(name) {
     var request = new Request;
     IO.load(IO.SOUNDBANK_URL + wavFiles[name], function(ab) {
+      console.log("Looking for ", IO.SOUNDBANK_URL + wavFiles[name])
       IO.decodeAudio(ab, function(buffer) {
         IO.wavBuffers[name] = buffer;
         request.load();
@@ -417,7 +418,6 @@ var P = (function() {
 
   IO.decodeAudio = function(ab, cb) {
     if (audioContext) {
-      console.log(ab);
       audioContext.decodeAudioData(ab, function(buffer) {
         cb(buffer);
       }, function(err) {
