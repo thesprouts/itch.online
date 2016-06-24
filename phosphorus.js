@@ -416,6 +416,7 @@ var P = (function() {
   };
 
   IO.decodeAudio = function(ab, cb) {
+    console.log("Decoding because of", arguments.callee.caller.toString());
     if (audioContext) {
       audioContext.decodeAudioData(ab, function(buffer) {
         cb(buffer);
@@ -553,7 +554,6 @@ var P = (function() {
       if (IO.zip) {
         cb(f.asText());
       } else {
-        console.log("I'm looking for", IO.ASSET_URL + md5);
         IO.projectRequest.add(IO.load(IO.ASSET_URL + md5 + '/get/', cb));
       }
     } else if (ext === 'wav') {
