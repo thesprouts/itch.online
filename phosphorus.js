@@ -415,8 +415,10 @@ var P = (function() {
     return request;
   };
 
-  IO.decodeAudio = function(ab, cb) {
-    console.log("Decoding because of", arguments.callee.caller.toString());
+  IO.decodeAudio = function(ab, cb, url) {
+    if (url) {
+      console.log ("Attempting to decode", url);
+    }
     if (audioContext) {
       audioContext.decodeAudioData(ab, function(buffer) {
         cb(buffer);
@@ -559,11 +561,11 @@ var P = (function() {
     } else if (ext === 'wav') {
       var request = new Request;
       var cb = function(ab) {
-        console.log("Found a wav file", IO.ASSET_URL + md5);
+        var url = IO.ASSET_URL + md5;
         IO.decodeAudio(ab, function(buffer) {
           callback(buffer);
           request.load(buffer);
-        });
+        }, url);
       }
       IO.projectRequest.add(request);
       if (IO.zip) {
