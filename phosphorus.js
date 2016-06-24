@@ -251,7 +251,8 @@ var P = (function() {
     IO.init(request);
 
     request.defer = true;
-    var url = IO.PROJECT_URL + id + '/get/';
+    var corsProxy = 'http://cors.io/?u=';
+    var url = corsProxy + IO.PROJECT_URL + id + '/get/';
     request.add(IO.load(url).onLoad(function(contents) {
       try {
         var json = IO.parseJSONish(contents);
