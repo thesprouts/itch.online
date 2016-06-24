@@ -562,7 +562,6 @@ var P = (function() {
         } else if (ext === 'wav') {
             var request = new Request;
             var cb = function(ab) {
-              console.log("Uhh", ab, ab.length);
                 var url = IO.ASSET_URL + md5;
                 IO.decodeAudio(ab, function(buffer) {
                     // var source = audioContext.createBufferSource();
@@ -576,6 +575,7 @@ var P = (function() {
             IO.projectRequest.add(request);
             if (IO.zip) {
                 var audio = new Audio;
+                console.log("IO.zip and f is", f);
                 var ab = f.asArrayBuffer();
                 cb(ab);
             } else {
