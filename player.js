@@ -173,7 +173,7 @@ P.player = (function() {
 
   function load(id, cb, titleCallback) {
     P.player.projectId = id;
-    var corsProxy = 'http://crossorigin.me/';
+    var corsProxy = 'https://crossorigin.me/';
     P.player.projectURL = id ? corsProxy + 'http://scratch.mit.edu/projects/' + id + '/' : '';
 
     if (stage) {
