@@ -208,6 +208,7 @@ var P = (function() {
 
 
   IO.load = function(url, callback, self, type) {
+    console.log("HEY", url);
     var request = new Request;
     var xhr = new XMLHttpRequest;
     xhr.open('GET', url, true);
@@ -405,7 +406,6 @@ var P = (function() {
   IO.loadWavBuffer = function(name) {
     var request = new Request;
     IO.load(IO.SOUNDBANK_URL + wavFiles[name], function(ab) {
-      console.log("Looking for ", IO.SOUNDBANK_URL + wavFiles[name])
       IO.decodeAudio(ab, function(buffer) {
         IO.wavBuffers[name] = buffer;
         request.load();
