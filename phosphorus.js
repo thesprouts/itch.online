@@ -251,7 +251,7 @@ var P = (function() {
     IO.init(request);
 
     request.defer = true;
-    var corsProxy = 'https://crossorigin.me/';
+    var corsProxy = 'http://crossorigin.me/';
     var url = corsProxy + IO.PROJECT_URL + id + '/get/';
     request.add(IO.load(url).onLoad(function(contents) {
       try {
@@ -293,7 +293,7 @@ var P = (function() {
     var request = new CompositeRequest;
 
     request.defer = true;
-    var corsProxy = 'https://crossorigin.me/';
+    var corsProxy = 'http://crossorigin.me/';
     request.add(P.IO.load(corsProxy + 'http://scratch.mit.edu/projects/' + id + '/').onLoad(function(data) {
       var m = /<title>\s*(.+?)(\s+on\s+Scratch)?\s*<\/title>/.exec(data);
       if (callback) request.onLoad(callback.bind(self));
