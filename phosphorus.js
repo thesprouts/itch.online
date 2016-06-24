@@ -417,6 +417,7 @@ var P = (function() {
 
   IO.decodeAudio = function(ab, cb) {
     if (audioContext) {
+      console.log(ab);
       audioContext.decodeAudioData(ab, function(buffer) {
         cb(buffer);
       }, function(err) {
