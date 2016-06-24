@@ -84,10 +84,9 @@
 (function() {
     'use strict';
 
-    var prefix = 'https://scratch.mit.edu/projects/';
-    if (String(location).match(/^http:/)) {
-        console.log("uhh");
-        location = String(location).replace(/^http:/, "https:");
+    var prefix = 'http://scratch.mit.edu/projects/';
+    if (String(location).match(/^https:/)) {
+        location = String(location).replace(/^https:/, "http:");
     }
 
     var initialId = location.hash.substr(1);
