@@ -434,7 +434,7 @@ var P = (function() {
             var abc = false;
             var uInt8Array = new Uint8Array(ab);
             if (readBytes(20, 2, uInt8Array) == 17) {
-                console.warn('Processing audio conversion');
+                // console.warn('Processing audio conversion');
                 // PF it's most likely ADPCM - lets hack the header and correct the buffer
                 abc = readADPCM(uInt8Array);
             }
@@ -567,7 +567,7 @@ var P = (function() {
         for (var i = 0; i < header.length; i++) {
             bytes[i] = header.charCodeAt(i);
         }
-        console.log(new Uint8Array(soundBuf));
+
         return soundBuf.slice(0);
     }
 
@@ -704,7 +704,6 @@ var P = (function() {
             var request = new Request;
             var cb = function(ab) {
                 var url = IO.ASSET_URL + md5;
-                console.log("Decoding", IO.ASSET_URL + md5)
                 IO.decodeAudio(ab, function(buffer) {
                     callback(buffer);
                     request.load(buffer);
