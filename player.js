@@ -1,3 +1,5 @@
+var overlay;
+
 P.player = (function() {
     'use strict';
 

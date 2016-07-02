@@ -3759,6 +3759,23 @@ P.runtime = (function() {
             source.stop(time + duration + 0.02267573696);
         };
 
+        function loadAutoplayInterface(soundSource) {
+            console.log(soundSource);
+            if (P.hasTouchEvents) {
+                console.log('heyhey');
+                overlay = document.createElement('div');
+                overlay.id = 'overlay';
+                overlay.innerText = 'play';
+                overlay.addEventListener('touchend', function(event) {
+                    console.log("A sound");
+                    soundSource.noteOn(0);
+                    soundSource.start(audioContext.currentTime);
+                });
+
+                document.querySelector('#player-area .player').appendChild(overlay);
+            }
+        };
+
         var playSound = function(sound) {
             if (!sound.buffer) return;
             if (!sound.node) {
@@ -3776,7 +3793,12 @@ P.runtime = (function() {
             sound.source.buffer = sound.buffer;
             sound.source.connect(sound.node);
 
-            sound.source.start(audioContext.currentTime);
+            // if (P.hasTouchEvents) {
+            //     loadAutoplayInterface(sound.source);
+            // } else {
+                sound.source.start(audioContext.currentTime);
+            // }
+
         };
     }
 
